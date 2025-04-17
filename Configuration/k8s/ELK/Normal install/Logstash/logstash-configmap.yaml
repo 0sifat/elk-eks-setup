@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-config
+  namespace: elk-new
+data:
+  logstash.conf: |
+    input {
+      beats {
+        port => 5044
+      }
+    }
+
+    filter {
+      #json {
+      #  source => "message"  # Assuming the entire log line is a JSON object
+      #}
+    }
+
+    output {
+      elasticsearch {
+        hosts => ["http://elasticsearch:9200"]
+        user => "${ELASTICSEARCH_USERNAME}"  # Set in the Logstash deployment as an environment variable
+        password => "${ELASTICSEARCH_PASSWORD}"  # Set in the Logstash deployment as an environment variable
+        index => "logstash-%{+YYYY.MM.dd}"
+        ssl => false  # Set to true if using HTTPS with a valid SSL certificate
+      }
+
+      stdout { codec => json }  # Outputs logs in JSON format for verification
+    }

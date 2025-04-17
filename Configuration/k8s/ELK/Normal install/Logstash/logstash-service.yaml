@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: logstash
+  namespace: elk-new
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5044
+      targetPort: 5044
+  selector:
+    app: logstash

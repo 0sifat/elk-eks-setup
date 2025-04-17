@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-logrotate-config
+  namespace: elk-new
+data:
+  logstash-logrotate.conf: |
+    /var/log/logstash/*.log {
+        daily
+        rotate 15
+        compress
+        missingok
+        notifempty
+        copytruncate
+    }

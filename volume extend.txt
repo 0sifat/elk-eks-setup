@@ -1,0 +1,16 @@
+pvcreate /dev/xvdf
+vgextend lv_root /dev/xvdf
+
+lvextend -l +100%FREE /dev/lv_root/lv_root
+resize2fs /dev/lv_root/lv_root
+df -h /
+
+
+
+or 
+
+
+sudo pvcreate /dev/nvme1n1 && \
+sudo vgextend lv_root /dev/nvme1n1 && \
+sudo lvextend -l +100%FREE /dev/lv_root/lv_root && \
+sudo resize2fs /dev/lv_root/lv_root

@@ -1,0 +1,21 @@
+[Unit]
+Description=Othoba app running on Ubuntu 20.04 LTS
+After=network.target
+
+[Service]
+WorkingDirectory=/var/www/othoba
+ExecStart=/usr/bin/dotnet /var/www/othoba/Nop.Web.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=nopCommerce450-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+StandardOutput=file:/var/log/othoba-app.log
+StandardError=file:/var/log/othoba-app-error.log
+MemoryLimit=1G
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

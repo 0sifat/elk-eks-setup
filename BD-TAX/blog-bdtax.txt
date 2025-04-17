@@ -1,0 +1,36 @@
+Memory ---- Limit of Metabase ---JAVA
+
+
+======= if service file is not using ==================
+
+/usr/bin/java -Xms256m -Xmx512m -jar /home/ubuntu/metabase.jar
+/usr/bin/java -Xms512m -Xmx800m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -jar /home/ubuntu/metabase.jar
+
+============== service file ==================
+
+# /etc/systemd/system/metabase.service
+[Unit]
+Description=Metabase Analytics Server
+After=network.target
+
+[Service]
+User=ubuntu
+ExecStart=/usr/bin/java -Xms512m -Xmx800m -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -jar /home/ubuntu/metabase.jar
+WorkingDirectory=/home/ubuntu
+Restart=on-failure
+MemoryMax=700M
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable --now metabase
+
+
+===== Verify =====
+ps aux | grep java
+free -m
+top
