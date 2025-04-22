@@ -1,0 +1,13 @@
+
+
+##################### Node Draning ##########################
+
+if you want to drain node1
+
+> kubectl drain node1 
+
+If demonset are running on the node1 
+
+> kubectl drain node1 --ignore-daemonsets
+
+
