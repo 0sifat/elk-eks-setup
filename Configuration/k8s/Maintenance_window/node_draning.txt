@@ -10,4 +10,28 @@ If demonset are running on the node1
 
 > kubectl drain node1 --ignore-daemonsets
 
+Afte the you can rejoin the clustet
 
+> kubectl uncordon k8s-worker-2
+
+2h0Lx00gtIjkc4+g
+
+
+sudo firewall-cmd --zone=public --add-port=1526/tcp --permanent
+
+sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+
+sudo firewall-cmd --zone=public --add-port=9002/tcp --permanent
+
+sudo firewall-cmd --zone=public --add-port=7001/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8090/tcp --permanent
+
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+
+sudo firewall-cmd --reload
+
+
+
+1526, 9001,9002,7001,8090,8080
+
+sudo firewall-cmd --reload

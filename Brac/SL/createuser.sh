@@ -1,10 +1,10 @@
 #!/bin/bash
 
-SLACK_WEBHOOK="$1"
-SCRIPT_OWNER="$2"
-SCRIPT_OWNER="Sifat Shaharia"
-HOSTNAME=$(hostname)
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+# SLACK_WEBHOOK="$1"
+# SCRIPT_OWNER="$2"
+# SCRIPT_OWNER="Sifat Shaharia"
+# HOSTNAME=$(hostname)
+# TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 
 echo "🔧 What do you want to do?"
@@ -67,10 +67,15 @@ echo "🔁 Restarting SSH service..."
 sudo systemctl restart sshd
 
 
-SLACK_MESSAGE=":rocket: *User information Updated Successfully!*%0A
-*👨‍💻 Script Owner:* $SCRIPT_OWNER%0A
-*🖥️ Host:* $HOSTNAME%0A
-*🕒 Time:* $TIMESTAMP"
+# SLACK_MESSAGE=":rocket: *User information Updated Successfully!*%0A
+# *👨‍💻 Script Owner:* $SCRIPT_OWNER%0A
+# *🖥️ Host:* $HOSTNAME%0A
+# *🕒 Time:* $TIMESTAMP"
 
 
 echo "✅ All done. SSH password login is enabled. Enjoy your Day!"
+
+
+
+
+$2b$12$5C22MWyaKEeWHDukEtMYxeYQuAmjcc8Njj0LuXFwjXbWZbCUihieu
