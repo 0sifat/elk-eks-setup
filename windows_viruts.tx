@@ -1,0 +1,34 @@
+<syscheck>
+  <disabled>no</disabled>
+  <!-- Monitor critical directories -->
+  <directories check_all="yes">C:\Windows\Temp</directories>
+  <directories check_all="yes">C:\Users\%USERNAME%\Downloads</directories>
+  <!-- Enable real-time monitoring -->
+  <windows_registry>HKEY_LOCAL_MACHINE\Software</windows_registry>
+</syscheck>
+
+
+--------------- Windows End-----------------
+
+
+---------------------- Linux -------------------------------------------
+
+<syscheck>
+  <disabled>no</disabled>
+  <!-- Monitor critical directories (Linux) -->
+  <directories check_all="yes">/etc</directories>       <!-- System configs -->
+  <directories check_all="yes">/bin</directories>       <!-- Essential binaries -->
+  <directories check_all="yes">/usr/bin</directories>    <!-- User binaries -->
+  <directories check_all="yes">/sbin</directories>      <!-- System admin binaries -->
+  <directories check_all="yes">/var/log</directories>   <!-- Log files -->
+  <directories check_all="yes">/tmp</directories>       <!-- Temporary files -->
+  <directories check_all="yes">/home</directories>      <!-- User home directories -->
+  <directories check_all="yes">/root</directories>       <!-- Root user files -->
+  <directories check_all="yes">/var/www/</directories> 
+  <!-- File extensions to monitor (optional) -->
+  <directories check_all="yes" report_changes="yes" realtime="yes">/etc/nginx</directories> <!-- Example: Monitor Nginx configs -->
+  
+  <!-- Exclude directories (optional) -->
+  <ignore>/tmp/ignore_this_folder</ignore>
+  <ignore>/var/log/nginx/access.log</ignore> <!-- Example: Exclude high-churn logs -->
+</syscheck>
