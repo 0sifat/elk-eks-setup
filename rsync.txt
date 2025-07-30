@@ -1,0 +1,1 @@
+rsync -avz devops@184.73.4.60:/home/devops/laravel-2025-06-29.log /home/cloudly/Downloads/
